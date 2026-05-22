@@ -15,6 +15,23 @@ const Hero = ({ personal, isDark }) => {
       }`} />
 
       <div className="max-w-4xl text-center z-10 flex flex-col items-center">
+        {/* Profile Avatar Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 relative group"
+        >
+          {/* Subtle glowing ring backdrop */}
+          <div className="absolute -inset-1 bg-gradient-to-tr from-apple-blue to-violet-500 rounded-3xl blur opacity-20 group-hover:opacity-50 transition duration-700 pointer-events-none" />
+          
+          <img 
+            src="/assets/profile.jpg" 
+            alt={personal.name} 
+            className="w-32 h-32 md:w-36 md:h-36 object-cover rounded-3xl border-2 border-white/10 shadow-xl relative z-10 transition-all duration-500 ease-out group-hover:scale-105 group-hover:border-white/20"
+          />
+        </motion.div>
+
         {/* Subtitle / Role Tag */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}

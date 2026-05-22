@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import BentoGrid from './components/BentoGrid';
 import Projects from './components/Projects';
 import Milestones from './components/Milestones';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import portfolioData from './data/portfolioData.json';
 
@@ -73,9 +74,19 @@ function App() {
 
         {/* Section 4: Recognition & Milestones */}
         <Milestones milestones={portfolioData.milestones} isDark={isDark} />
+
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Subtle separator */}
+          <hr className={`border-t transition-colors duration-500 ${
+            isDark ? 'border-white/5' : 'border-black/5'
+          }`} />
+        </div>
+
+        {/* Section 5: Contact Gate */}
+        <Contact isDark={isDark} />
       </main>
 
-      {/* Section 5: Footer & Digital Touchpoints */}
+      {/* Section 6: Footer & Digital Touchpoints */}
       <Footer socials={portfolioData.socials} isDark={isDark} />
     </div>
   );

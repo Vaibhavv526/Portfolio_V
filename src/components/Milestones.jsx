@@ -111,10 +111,15 @@ const Milestones = ({ milestones, isDark }) => {
                 {milestone.location}
               </span>
               
-              <span className="text-apple-blue font-semibold flex items-center gap-1 group/link">
-                View Details
-                <ExternalLink className="w-3 h-3 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
-              </span>
+              <a 
+                href={milestone.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-apple-blue font-semibold flex items-center gap-1 group/link hover:underline"
+              >
+                Read Post
+                <ExternalLink className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
+              </a>
             </div>
           </motion.div>
         ))}

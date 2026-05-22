@@ -22,6 +22,7 @@ const Navbar = ({ isDark, setIsDark }) => {
     { name: 'Metrics', href: '#metrics' },
     { name: 'Systems', href: '#projects' },
     { name: 'Milestones', href: '#milestones' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleLinkClick = (e, href) => {
@@ -54,7 +55,7 @@ const Navbar = ({ isDark, setIsDark }) => {
         >
           <Terminal className={`w-5 h-5 ${isDark ? 'text-apple-blue' : 'text-apple-blue'}`} />
           <span className={isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'}>
-            Vaibhav.Dev
+            K Vaibhav
           </span>
         </a>
 

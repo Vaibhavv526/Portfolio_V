@@ -210,12 +210,23 @@ const Projects = ({ projects, isDark }) => {
                     ))}
                   </div>
 
-                  <div>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full text-xs font-semibold bg-apple-blue hover:bg-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                    >
+                      View Source Code
+                    </a>
+                    
                     <button
                       onClick={() => setActiveProject(project)}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-apple-blue group/btn"
+                      className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
+                        isDark ? 'text-apple-text-darkPrimary hover:text-apple-blue' : 'text-apple-text-lightPrimary hover:text-apple-blue'
+                      } group/btn`}
                     >
-                      Explore Architectural Specs
+                      Explore Specs
                       <ChevronRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </button>
                   </div>

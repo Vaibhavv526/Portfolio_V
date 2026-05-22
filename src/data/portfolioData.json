@@ -1,6 +1,6 @@
 {
   "personal": {
-    "name": "Vaibhav K.",
+    "name": "K Vaibhav",
     "role": "Software Engineering Student & Aspiring ML Engineer",
     "headline": "It’s not about if I can. I’m doing it because I want to.",
     "subHeadline": "Software Engineering Student & Aspiring Machine Learning Engineer crafting scalable applications and data-driven systems."
@@ -36,6 +36,7 @@
       "subtitle": "English-to-Hindi Neural Translator",
       "description": "Sequence-to-sequence encoder-decoder architecture built entirely from scratch in PyTorch.",
       "tech": ["PyTorch", "Python", "FastAPI", "Docker"],
+      "github": "https://github.com/Vaibhavv526/Transformer-Translation-Model",
       "highlights": [
         "Custom multi-head self-attention mechanisms and positional encoding layers",
         "Masked causal attention layers ensuring correct autoregressive decoding alignment",
@@ -49,6 +50,7 @@
       "subtitle": "Unsupervised Machine Learning Architecture",
       "description": "Unsupervised ML pipeline designed for robust user profile clustering and marketing insights.",
       "tech": ["Python", "Scikit-learn", "Docker", "Streamlit"],
+      "github": "https://github.com/Vaibhavv526/Customer_Segmentation",
       "highlights": [
         "Implemented K-Means clustering algorithm paired with silhouette score optimization",
         "Integrated Principal Component Analysis (PCA) for multi-dimensional data dimensionality reduction",
@@ -62,6 +64,7 @@
       "subtitle": "Multi-city Production-grade Time-series Engine",
       "description": "End-to-end historical data retrieval and predictive modeling pipeline.",
       "tech": ["Python", "Flask", "Scikit-learn", "Streamlit"],
+      "github": "https://github.com/Vaibhavv526/Weather-Trend-Forecasting",
       "highlights": [
         "End-to-end data pipelines streaming historical data directly into optimized predictive modeling frameworks",
         "Advanced time-series forecasting algorithms modeling seasonal variations and temperature trends",
@@ -75,25 +78,29 @@
       "role": "National Runner Up",
       "event": "Symbiosis Skill Hackathon (SSH '26)",
       "location": "Indore",
-      "year": "2026"
+      "year": "2026",
+      "link": "https://www.linkedin.com/posts/k-vaibhav-7328b1329_radhe-radhe-i-recently-participated-in-activity-7433793523365191680-ypZb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
     },
     {
       "role": "Runner Up",
       "event": "Business Ghar Ideathon 2026",
-      "location": "Indore",
-      "year": "2026"
+      "location": "Raipur",
+      "year": "2026",
+      "link": "https://www.linkedin.com/posts/k-vaibhav-7328b1329_radhe-radhe-everyone-grateful-for-an-amazing-activity-7418728968067018753-ZW3F?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
     },
     {
       "role": "National Finalist",
       "event": "IIIT Naya Raipur E-Summit Hackathon 2026",
       "location": "Top 120 Teams",
-      "year": "2026"
+      "year": "2026",
+      "link": "https://www.linkedin.com/posts/vinay-dewangan-02893821b_hackathon-esummit-iitnayaraipur-ugcPost-7442947404380815360-afOI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
     },
     {
       "role": "National Finalist",
       "event": "NHIDE National Hackathon 2026",
       "location": "Top 200 Teams",
-      "year": "2026"
+      "year": "2026",
+      "link": "https://www.linkedin.com/posts/harish-shipra-sharma-177a2032b_ideathon-learningexperience-teamwork-activity-7442978822922178562-D9PS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
     }
   ],
   "socials": {
