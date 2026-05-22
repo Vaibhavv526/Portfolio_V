@@ -98,7 +98,7 @@ const Footer = ({ socials, isDark }) => {
             </span>
             <span>Software Engineering Major</span>
             <span>Aspiring ML Engineer</span>
-            <span>Indore, India</span>
+            <span>Bilaspur, India</span>
             <span className="text-apple-blue font-semibold">Open for Opportunities</span>
           </div>
         </div>

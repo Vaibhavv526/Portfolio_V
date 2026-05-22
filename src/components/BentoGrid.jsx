@@ -11,25 +11,50 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
     medium: leetcode.medium,
     hard: leetcode.hard,
     easy: leetcode.easy,
+    ranking: leetcode.ranking || null,
     loading: true
   });
 
-  // Sourcing live problem-solving data from LeetCode API scraper
+  // Sourcing live problem-solving data from LeetCode API proxies
   useEffect(() => {
     const fetchLeetCodeData = async () => {
+      let data = null;
+      let ranking = leetcode.ranking || null;
+
+      // Try local/production proxy endpoint first
       try {
-        const response = await fetch('https://leetcode-api-fwd.vercel.app/api/u/Vaibhav___09');
-        if (!response.ok) throw new Error('API query failed');
-        const data = await response.json();
-        
+        const response = await fetch('/api/leetcode?username=Vaibhav___09');
+        if (response.ok) {
+          const resJson = await response.json();
+          // Extract data if nested inside a GraphQL result wrapper
+          data = resJson.data || resJson;
+        }
+      } catch (err) {
+        console.warn('Local proxy route unavailable, trying public proxy.', err);
+      }
+
+      // Try fallback public proxy if local proxy fetch failed
+      if (!data) {
+        try {
+          const response = await fetch('https://leetcode-api-fwd.vercel.app/api/u/Vaibhav___09');
+          if (response.ok) {
+            data = await response.json();
+          }
+        } catch (err) {
+          console.warn('Public proxy route failed.', err);
+        }
+      }
+
+      // If we got data, parse it
+      if (data) {
         let total = leetcode.totalSolved;
         let medium = leetcode.medium;
         let hard = leetcode.hard;
         let easy = leetcode.easy;
 
-        if (data) {
-          // Schema 1: Hierarchical matchedUser structure
-          if (data.matchedUser?.submitStats?.acSubmissionNum) {
+        if (data.matchedUser) {
+          ranking = data.matchedUser.ranking || ranking;
+          if (data.matchedUser.submitStats?.acSubmissionNum) {
             const list = data.matchedUser.submitStats.acSubmissionNum;
             const allStat = list.find(s => s.difficulty === 'All');
             const easyStat = list.find(s => s.difficulty === 'Easy');
@@ -40,21 +65,19 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
             if (easyStat) easy = easyStat.count;
             if (medStat) medium = medStat.count;
             if (hardStat) hard = hardStat.count;
-          } 
-          // Schema 2: Flat stats object
-          else if (typeof data.totalSolved === 'number') {
-            total = data.totalSolved;
-            medium = data.mediumSolved || data.medium || leetcode.medium;
-            hard = data.hardSolved || data.hard || leetcode.hard;
-            easy = data.easySolved || data.easy || leetcode.easy;
           }
-          // Schema 3: Alternate flat keys
-          else if (typeof data.solvedQuestions === 'number') {
-            total = data.solvedQuestions;
-            medium = data.mediumQuestions || leetcode.medium;
-            hard = data.hardQuestions || leetcode.hard;
-            easy = data.easyQuestions || leetcode.easy;
-          }
+        } else if (typeof data.totalSolved === 'number') {
+          total = data.totalSolved;
+          medium = data.mediumSolved || data.medium || leetcode.medium;
+          hard = data.hardSolved || data.hard || leetcode.hard;
+          easy = data.easySolved || data.easy || leetcode.easy;
+          ranking = data.ranking || ranking;
+        } else if (typeof data.solvedQuestions === 'number') {
+          total = data.solvedQuestions;
+          medium = data.mediumQuestions || leetcode.medium;
+          hard = data.hardQuestions || leetcode.hard;
+          easy = data.easyQuestions || leetcode.easy;
+          ranking = data.ranking || ranking;
         }
 
         setStats({
@@ -62,11 +85,16 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
           medium: medium,
           hard: hard,
           easy: easy,
+          ranking: ranking,
           loading: false
         });
-      } catch (err) {
-        console.warn('LeetCode API fetch error. Using local metrics fallback.', err);
-        setStats(prev => ({ ...prev, loading: false }));
+      } else {
+        // Fall back entirely to local config
+        setStats(prev => ({
+          ...prev,
+          ranking: leetcode.ranking || null,
+          loading: false
+        }));
       }
     };
 
@@ -88,11 +116,20 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
       label: `${stats.totalSolved} / ${leetcode.targetSolved}`
     },
     { 
+      name: 'Easy Problems', 
+      val: stats.easy, 
+      max: 100, 
+      color: '#10b981', // Apple Green / Emerald
+      radius: 52,
+      stroke: 8,
+      label: `${stats.easy} Easy`
+    },
+    { 
       name: 'Medium Problems', 
       val: stats.medium, 
       max: 100, 
       color: '#f59e0b', // Amber/Yellow
-      radius: 50,
+      radius: 39,
       stroke: 8,
       label: `${stats.medium} Med`
     },
@@ -101,7 +138,7 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
       val: stats.hard, 
       max: 20, 
       color: '#ef4444', // Red
-      radius: 35,
+      radius: 26,
       stroke: 8,
       label: `${stats.hard} Hard`
     }
@@ -184,11 +221,24 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
                 </span>
               )}
             </div>
-            <h3 className={`text-2xl font-bold tracking-tight mb-2 ${
-              isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'
-            }`}>
-              {stats.totalSolved}+ Solved on LeetCode
-            </h3>
+            
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+              <h3 className={`text-2xl font-bold tracking-tight ${
+                isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'
+              }`}>
+                {stats.totalSolved}+ Solved on LeetCode
+              </h3>
+              {stats.ranking && (
+                <span className={`text-[10px] tracking-widest uppercase font-semibold px-2.5 py-0.5 rounded-full border ${
+                  isDark 
+                    ? 'bg-apple-blue/10 border-apple-blue/20 text-apple-blue' 
+                    : 'bg-apple-blue/5 border-apple-blue/10 text-apple-blue'
+                }`}>
+                  Rank #{stats.ranking.toLocaleString()}
+                </span>
+              )}
+            </div>
+            
             <p className={`text-sm max-w-sm mb-6 ${
               isDark ? 'text-apple-text-darkSecondary' : 'text-apple-text-lightSecondary'
             }`}>

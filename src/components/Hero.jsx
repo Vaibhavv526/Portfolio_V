@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FileText } from 'lucide-react';
 
 const Hero = ({ personal, isDark }) => {
   return (
@@ -84,6 +85,19 @@ const Hero = ({ personal, isDark }) => {
             }}
           >
             Explore Systems
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1QNkHok0qQc7S6ywITMhJOE42AkpIr1Cn/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`px-6 py-3 rounded-full text-sm font-medium border flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 ${
+              isDark 
+                ? 'border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-apple-text-darkPrimary' 
+                : 'border-black/10 hover:border-black/20 bg-black/5 hover:bg-black/10 text-apple-text-lightPrimary'
+            }`}
+          >
+            <FileText className="w-4 h-4 text-apple-blue" />
+            Curriculum Vitae
           </a>
           <a
             href="#metrics"
