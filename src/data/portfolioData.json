@@ -1,0 +1,104 @@
+{
+  "personal": {
+    "name": "Vaibhav K.",
+    "role": "Software Engineering Student & Aspiring ML Engineer",
+    "headline": "It’s not about if I can. I’m doing it because I want to.",
+    "subHeadline": "Software Engineering Student & Aspiring Machine Learning Engineer crafting scalable applications and data-driven systems."
+  },
+  "metrics": {
+    "leetcode": {
+      "totalSolved": 155,
+      "medium": 65,
+      "hard": 8,
+      "easy": 82,
+      "targetSolved": 200
+    },
+    "consistency": {
+      "title": "100 Days Badge (2026)",
+      "subtitle": "Engineering Consistency Badge",
+      "description": "Awarded for consistent problem solving, engineering contributions, and algorithmic commit streaks in 2026."
+    }
+  },
+  "toolkit": [
+    { "name": "Python", "category": "Languages / ML" },
+    { "name": "Java", "category": "Languages / ML" },
+    { "name": "PyTorch", "category": "Frameworks / Libs" },
+    { "name": "Scikit-learn", "category": "Frameworks / Libs" },
+    { "name": "Docker", "category": "DevOps / Infrastructure" },
+    { "name": "Streamlit", "category": "Frontend / Deploy" },
+    { "name": "FastAPI", "category": "Backend / Systems" },
+    { "name": "Flask", "category": "Backend / Systems" }
+  ],
+  "projects": [
+    {
+      "id": "transformer-translation",
+      "title": "Transformer Translation Model",
+      "subtitle": "English-to-Hindi Neural Translator",
+      "description": "Sequence-to-sequence encoder-decoder architecture built entirely from scratch in PyTorch.",
+      "tech": ["PyTorch", "Python", "FastAPI", "Docker"],
+      "highlights": [
+        "Custom multi-head self-attention mechanisms and positional encoding layers",
+        "Masked causal attention layers ensuring correct autoregressive decoding alignment",
+        "Efficient beam search and autoregressive decoding strategies for high translation accuracy",
+        "Production inference pipeline deployed via a FastAPI backend with rapid response latencies"
+      ]
+    },
+    {
+      "id": "customer-segmentation",
+      "title": "Customer Segmentation Pipeline",
+      "subtitle": "Unsupervised Machine Learning Architecture",
+      "description": "Unsupervised ML pipeline designed for robust user profile clustering and marketing insights.",
+      "tech": ["Python", "Scikit-learn", "Docker", "Streamlit"],
+      "highlights": [
+        "Implemented K-Means clustering algorithm paired with silhouette score optimization",
+        "Integrated Principal Component Analysis (PCA) for multi-dimensional data dimensionality reduction",
+        "Globally deployed as a containerized dashboard using Docker and Streamlit",
+        "Generated automated customer insights and interactive vector scatter plots"
+      ]
+    },
+    {
+      "id": "weather-forecasting",
+      "title": "Weather Trend Forecasting System",
+      "subtitle": "Multi-city Production-grade Time-series Engine",
+      "description": "End-to-end historical data retrieval and predictive modeling pipeline.",
+      "tech": ["Python", "Flask", "Scikit-learn", "Streamlit"],
+      "highlights": [
+        "End-to-end data pipelines streaming historical data directly into optimized predictive modeling frameworks",
+        "Advanced time-series forecasting algorithms modeling seasonal variations and temperature trends",
+        "Cloud-deployed UI visualizations displaying cross-city analytics and error metrics",
+        "Self-healing ETL jobs designed to retrieve updated meteorological reports"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "role": "National Runner Up",
+      "event": "Symbiosis Skill Hackathon (SSH '26)",
+      "location": "Indore",
+      "year": "2026"
+    },
+    {
+      "role": "Runner Up",
+      "event": "Business Ghar Ideathon 2026",
+      "location": "Indore",
+      "year": "2026"
+    },
+    {
+      "role": "National Finalist",
+      "event": "IIIT Naya Raipur E-Summit Hackathon 2026",
+      "location": "Top 120 Teams",
+      "year": "2026"
+    },
+    {
+      "role": "National Finalist",
+      "event": "NHIDE National Hackathon 2026",
+      "location": "Top 200 Teams",
+      "year": "2026"
+    }
+  ],
+  "socials": {
+    "github": "https://github.com/Vaibhavv526",
+    "linkedin": "https://linkedin.com/in/k-vaibhav-7328b1329",
+    "leetcode": "https://leetcode.com/u/Vaibhav___09/"
+  }
+}
