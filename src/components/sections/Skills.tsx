@@ -1,173 +1,139 @@
 "use client";
 import { motion } from "framer-motion";
+import {
+  Code,
+  Cpu,
+  Sparkles,
+  Database,
+  Cloud,
+} from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { skills } from "@/lib/data";
+import { skillCategories } from "@/lib/data";
 
-interface SkillBarProps {
-  name: string;
-  level: number;
-  color: string;
-  delay?: number;
-}
-
-function SkillBar({ name, level, color, delay = 0 }: SkillBarProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.5 }}
-      className="group"
-    >
-      <div className="flex justify-between items-center mb-2">
-        <span className="font-body text-sm text-text/80">{name}</span>
-        <span className="font-mono text-xs text-muted">{level}%</span>
-      </div>
-      <div className="h-1.5 bg-surface-2 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ delay: delay + 0.2, duration: 1, ease: "easeOut" }}
-          className="h-full rounded-full"
-          style={{ background: `linear-gradient(90deg, ${color}, ${color}99)` }}
-        />
-      </div>
-    </motion.div>
-  );
-}
-
-const conceptColors: Record<string, string> = {
-  "ML Pipelines": "#00d4ff",
-  "RAG": "#7b2fff",
-  "Agentic AI": "#ff2d78",
-  "Feature Engineering": "#00d4ff",
-  "Transformers": "#7b2fff",
-  "NLP": "#ff2d78",
-  "Data Structures": "#4a9eff",
-  "OOP": "#ffa500",
-};
+const categoryIcons = [
+  Code,       // Programming
+  Cpu,        // AI/ML
+  Sparkles,   // Generative AI
+  Database,   // Backend & Data
+  Cloud,      // Cloud & Tools
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-28 px-6">
-      {/* Decorative glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-accent-2/[0.03] blur-[80px] pointer-events-none" />
+    <section id="skills" aria-label="Technical Skills" className="relative py-28 px-6">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-accent-2/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeading
-          label="Expertise"
-          title="Skills & Tools"
-          subtitle="A curated stack of tools, frameworks, and concepts I use to build intelligent systems."
+          label="Core Stack"
+          title="Technical Skills"
+          subtitle="Curated tools, frameworks, and technologies applied across AI/ML models, generative workflows, and production backends."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Languages */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="glass-bright border border-border rounded-2xl p-6 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent" />
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              <h3 className="font-display font-semibold text-sm tracking-wide">
-                LANGUAGES
-              </h3>
-            </div>
-            <div className="space-y-5">
-              {skills.languages.map((s, i) => (
-                <SkillBar key={s.name} {...s} color="#00d4ff" delay={i * 0.1} />
-              ))}
-            </div>
-          </motion.div>
+          {skillCategories.map((category, idx) => {
+            const Icon = categoryIcons[idx] || Code;
+            const isLarge = idx === 1; // AI/ML category has more items, give it special layout if desired
 
-          {/* ML / Data Science */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-bright border border-border rounded-2xl p-6 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent-2 to-transparent" />
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent-2" />
-              <h3 className="font-display font-semibold text-sm tracking-wide">
-                ML / DATA SCIENCE
-              </h3>
-            </div>
-            <div className="space-y-5">
-              {skills.ml.map((s, i) => (
-                <SkillBar key={s.name} {...s} color="#7b2fff" delay={i * 0.08} />
-              ))}
-            </div>
-          </motion.div>
+            return (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08, duration: 0.5 }}
+                className={`glass-bright border border-border rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group hover:border-border-bright transition-all duration-300 shadow-lg shadow-black/20 ${
+                  isLarge ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                {/* Category accent bar */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-0.5 opacity-70 transition-opacity group-hover:opacity-100"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${category.color}, transparent)`,
+                  }}
+                />
 
-          {/* Frameworks & Tools */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-bright border border-border rounded-2xl p-6 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent-3 to-transparent" />
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent-3" />
-              <h3 className="font-display font-semibold text-sm tracking-wide">
-                FRAMEWORKS & TOOLS
-              </h3>
-            </div>
-            <div className="space-y-5">
-              {skills.tools.map((s, i) => (
-                <SkillBar key={s.name} {...s} color="#ff2d78" delay={i * 0.08} />
-              ))}
-            </div>
-          </motion.div>
+                <div>
+                  {/* Category Header */}
+                  <div className="flex items-center gap-3 mb-5 pb-3 border-b border-border/70">
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                      style={{
+                        background: category.color + "15",
+                        border: `1px solid ${category.color}35`,
+                      }}
+                    >
+                      <Icon size={17} style={{ color: category.color }} />
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-sm tracking-wide text-text">
+                        {category.title}
+                      </h3>
+                      <span className="font-mono text-[10px] text-muted">
+                        {category.skills.length} verified technologies
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Skills Badges */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 rounded-xl font-mono text-xs border transition-all duration-200 cursor-default flex items-center gap-1.5"
+                        style={{
+                          color: "#e8eef8",
+                          borderColor: "rgba(42, 58, 96, 0.7)",
+                          backgroundColor: "rgba(10, 15, 30, 0.6)",
+                        }}
+                        onMouseEnter={(e) => {
+                          const target = e.currentTarget as HTMLElement;
+                          target.style.borderColor = category.color + "80";
+                          target.style.backgroundColor = category.color + "15";
+                          target.style.color = category.color;
+                          target.style.boxShadow = `0 0 14px ${category.color}25`;
+                        }}
+                        onMouseLeave={(e) => {
+                          const target = e.currentTarget as HTMLElement;
+                          target.style.borderColor = "rgba(42, 58, 96, 0.7)";
+                          target.style.backgroundColor = "rgba(10, 15, 30, 0.6)";
+                          target.style.color = "#e8eef8";
+                          target.style.boxShadow = "none";
+                        }}
+                      >
+                        <span
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ background: category.color }}
+                        />
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer badge */}
+                <div className="mt-6 pt-3 border-t border-border/40 flex items-center justify-between text-[11px] font-mono text-muted/70">
+                  <span>Production verified</span>
+                  <span className="text-emerald-400/90 font-medium">✓ Active Stack</span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Concepts */}
+        {/* Technical Credibility Note */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-6 glass-bright border border-border rounded-2xl p-8 relative overflow-hidden"
+          transition={{ delay: 0.4 }}
+          className="mt-8 text-center"
         >
-          <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-accent via-accent-2 to-accent-3" />
-          <h3 className="font-display font-semibold text-sm tracking-wider text-center mb-6 text-muted">
-            KEY CONCEPTS
-          </h3>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {skills.concepts.map((concept, i) => (
-              <motion.span
-                key={concept}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06, duration: 0.3 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="px-4 py-2 rounded-xl font-mono text-xs border transition-all duration-200 cursor-default"
-                style={{
-                  color: conceptColors[concept] || "#00d4ff",
-                  borderColor: (conceptColors[concept] || "#00d4ff") + "30",
-                  background: (conceptColors[concept] || "#00d4ff") + "08",
-                  boxShadow: `0 0 0 0 ${conceptColors[concept] || "#00d4ff"}`,
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 0 16px ${conceptColors[concept] || "#00d4ff"}25`;
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 0 0 0 transparent";
-                }}
-              >
-                {concept}
-              </motion.span>
-            ))}
-          </div>
+          <p className="font-mono text-xs text-muted/70">
+            Skills organized by architectural domain · No arbitrary percentage bars or fabricated ratings
+          </p>
         </motion.div>
       </div>
     </section>
