@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Copy, Check, Send, Linkedin, Github, FileText } from 'lucide-react';
 
@@ -104,10 +104,10 @@ const Contact = ({ isDark }) => {
     },
     {
       id: 'resume',
-      label: 'Curriculum Vitae',
+      label: 'Resume',
       value: 'View Professional Resume',
       actionType: 'link',
-      url: 'https://drive.google.com/file/d/1QNkHok0qQc7S6ywITMhJOE42AkpIr1Cn/view?usp=sharing',
+      url: 'https://drive.google.com/file/d/1KRlNbxIY2LS97iBuny6Nipo_EZ_H53fB/view?usp=sharing',
       icon: FileText,
       iconColorClass: 'text-violet-500 bg-violet-500/10 dark:bg-violet-500/15',
       hoverColorClass: 'group-hover:text-violet-500'

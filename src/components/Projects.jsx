@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cpu, Maximize2, Server, TrendingUp, X, CheckCircle2, ChevronRight, Layers } from 'lucide-react';
+import { Cpu, Server, TrendingUp, X, CheckCircle2, ChevronRight, Layers } from 'lucide-react';
 
 const Projects = ({ projects, isDark }) => {
   const [activeProject, setActiveProject] = useState(null);
@@ -52,71 +52,75 @@ const Projects = ({ projects, isDark }) => {
           </defs>
         </svg>
       );
-    } else if (projectId === 'customer-segmentation') {
+    } else if (projectId === 'campus-compass' || projectId === 'customer-segmentation') {
       return (
         <svg viewBox="0 0 400 240" className="w-full h-auto max-w-sm mx-auto drop-shadow-md">
-          {/* Data block */}
-          <rect x="20" y="80" width="70" height="60" rx="8" fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
-          <text x="55" y="110" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="9" fontWeight="600">Raw Data</text>
-          <text x="55" y="125" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="8">Multi-dim</text>
+          {/* React Frontend */}
+          <rect x="15" y="75" width="75" height="50" rx="8" fill="#0071e3" fillOpacity="0.1" stroke="#0071e3" strokeWidth="1.5" />
+          <text x="52" y="98" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">React + Vite</text>
+          <text x="52" y="112" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Student UI</text>
 
           {/* Arrow */}
-          <path d="M 90,110 L 130,110" stroke="#86868b" strokeWidth="1.5" />
+          <path d="M 90,100 L 125,100" stroke="#86868b" strokeWidth="1.5" />
 
-          {/* PCA block */}
-          <rect x="130" y="80" width="70" height="60" rx="8" fill="#0071e3" fillOpacity="0.1" stroke="#0071e3" strokeWidth="1.5" />
-          <text x="165" y="110" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="9" fontWeight="600">PCA Step</text>
-          <text x="165" y="125" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="8">Dim Reduction</text>
-
-          {/* Arrow */}
-          <path d="M 200,110 L 240,110" stroke="#86868b" strokeWidth="1.5" />
-
-          {/* K-Means clustering block */}
-          <rect x="240" y="80" width="70" height="60" rx="8" fill="#e59e0b" fillOpacity="0.1" stroke="#e59e0b" strokeWidth="1.5" />
-          <text x="275" y="105" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="9" fontWeight="600">K-Means</text>
-          <text x="275" y="118" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="8">Clustering</text>
-          <text x="275" y="130" textAnchor="middle" fill="#e59e0b" fontSize="7" fontWeight="500">Silhouette Optim</text>
+          {/* FastAPI Gateway */}
+          <rect x="125" y="70" width="75" height="60" rx="8" fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
+          <text x="162" y="95" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">FastAPI</text>
+          <text x="162" y="108" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">REST / JWT</text>
+          <text x="162" y="120" textAnchor="middle" fill="#10b981" fontSize="7" fontWeight="500">Pydantic</text>
 
           {/* Arrow */}
-          <path d="M 310,110 L 350,110" stroke="#86868b" strokeWidth="1.5" />
+          <path d="M 200,100 L 235,100" stroke="#86868b" strokeWidth="1.5" />
 
-          {/* Deploy block */}
-          <circle cx="370" cy="110" r="20" fill="none" stroke="#10b981" strokeWidth="1.5" />
-          <text x="370" y="113" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">Streamlit</text>
+          {/* 7-Agent Core */}
+          <rect x="235" y="60" width="80" height="80" rx="10" fill="#e59e0b" fillOpacity="0.1" stroke="#e59e0b" strokeWidth="1.5" />
+          <text x="275" y="85" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">7-Agent AI</text>
+          <text x="275" y="98" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Mentoring</text>
+          <text x="275" y="110" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Quiz & Tutor</text>
+          <text x="275" y="124" textAnchor="middle" fill="#e59e0b" fontSize="7" fontWeight="500">Groq LLM</text>
+
+          {/* Arrow */}
+          <path d="M 315,100 L 345,100" stroke="#86868b" strokeWidth="1.5" />
+
+          {/* PostgreSQL & Cloud */}
+          <circle cx="370" cy="100" r="22" fill="none" stroke="#0071e3" strokeWidth="1.5" />
+          <text x="370" y="98" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="7" fontWeight="600">Postgres</text>
+          <text x="370" y="110" textAnchor="middle" fill="#0071e3" fontSize="6">SQLAlchemy</text>
         </svg>
       );
-    } else if (projectId === 'weather-forecasting') {
+    } else if (projectId === 'cv-illumination' || projectId === 'weather-forecasting') {
       return (
         <svg viewBox="0 0 400 240" className="w-full h-auto max-w-sm mx-auto drop-shadow-md">
-          {/* Historical Data Source */}
-          <rect x="15" y="70" width="75" height="40" rx="6" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="52" y="90" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">Data Pipeline</text>
-          <text x="52" y="100" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">API Ingestion</text>
+          {/* Camera Ingestion */}
+          <rect x="15" y="70" width="75" height="50" rx="8" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="52" y="93" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">Camera Image</text>
+          <text x="52" y="106" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Preprocessing</text>
 
           {/* Arrow */}
-          <path d="M 90,90 L 130,90" stroke="#86868b" strokeWidth="1.5" />
+          <path d="M 90,95 L 125,95" stroke="#86868b" strokeWidth="1.5" />
 
-          {/* Time Series Modeler */}
-          <rect x="130" y="70" width="75" height="80" rx="8" fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
-          <text x="167" y="100" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">Predictive Engine</text>
-          <text x="167" y="112" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Scikit-Learn TS</text>
-          <text x="167" y="125" textAnchor="middle" fill="#10b981" fontSize="7" fontWeight="500">Error Metrics</text>
-
-          {/* Arrow */}
-          <path d="M 205,110 L 245,110" stroke="#86868b" strokeWidth="1.5" />
-
-          {/* Flask API Gateway */}
-          <rect x="245" y="80" width="65" height="50" rx="6" fill="#e59e0b" fillOpacity="0.1" stroke="#e59e0b" strokeWidth="1.5" />
-          <text x="277" y="105" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">Flask Server</text>
-          <text x="277" y="115" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Inference API</text>
+          {/* ResNet18 + YOLO */}
+          <rect x="125" y="65" width="80" height="70" rx="8" fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
+          <text x="165" y="90" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">Feature Pipeline</text>
+          <text x="165" y="103" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">ResNet18 + YOLO</text>
+          <text x="165" y="118" textAnchor="middle" fill="#10b981" fontSize="7" fontWeight="500">Night-Vision</text>
 
           {/* Arrow */}
-          <path d="M 310,105 L 340,105" stroke="#86868b" strokeWidth="1.5" />
+          <path d="M 205,100 L 240,100" stroke="#86868b" strokeWidth="1.5" />
 
-          {/* Streamlit Dashboard */}
-          <rect x="340" y="85" width="55" height="40" rx="6" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="367" y="105" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="7" fontWeight="600">UI Dashboard</text>
-          <text x="367" y="115" textAnchor="middle" fill="#3b82f6" fontSize="6">Streamlit</text>
+          {/* XGBoost Classifier */}
+          <rect x="240" y="70" width="75" height="60" rx="8" fill="#e59e0b" fillOpacity="0.1" stroke="#e59e0b" strokeWidth="1.5" />
+          <text x="277" y="95" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">XGBoost</text>
+          <text x="277" y="108" textAnchor="middle" fill={isDark ? '#86868b' : '#6e6e73'} fontSize="7">Classifier</text>
+          <text x="277" y="120" textAnchor="middle" fill="#e59e0b" fontSize="7" fontWeight="500">&lt;200ms Latency</text>
+
+          {/* Arrow */}
+          <path d="M 315,100 L 345,100" stroke="#86868b" strokeWidth="1.5" />
+
+          {/* Accuracy Result */}
+          <circle cx="370" cy="100" r="22" fill="none" stroke="#10b981" strokeWidth="1.5" />
+          <text x="370" y="98" textAnchor="middle" fill={isDark ? '#f5f5f7' : '#1d1d1f'} fontSize="8" fontWeight="600">92%</text>
+          <text x="370" y="110" textAnchor="middle" fill="#10b981" fontSize="7">Accuracy</text>
         </svg>
       );
     }
@@ -127,8 +131,10 @@ const Projects = ({ projects, isDark }) => {
     switch (id) {
       case 'transformer-translation':
         return <Cpu className="w-6 h-6 text-apple-blue" />;
+      case 'campus-compass':
       case 'customer-segmentation':
         return <Layers className="w-6 h-6 text-emerald-500" />;
+      case 'cv-illumination':
       case 'weather-forecasting':
         return <TrendingUp className="w-6 h-6 text-amber-500" />;
       default:
@@ -220,6 +226,21 @@ const Projects = ({ projects, isDark }) => {
                       View Source Code
                     </a>
                     
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`px-5 py-2.5 rounded-full text-xs font-semibold border transition-all duration-300 transform hover:-translate-y-0.5 ${
+                          isDark 
+                            ? 'border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-apple-text-darkPrimary' 
+                            : 'border-black/10 hover:border-black/20 bg-black/5 hover:bg-black/10 text-apple-text-lightPrimary'
+                        }`}
+                      >
+                        Live Demo
+                      </a>
+                    )}
+
                     <button
                       onClick={() => setActiveProject(project)}
                       className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
@@ -346,19 +367,31 @@ const Projects = ({ projects, isDark }) => {
                     <div>
                       <span className="font-semibold block mb-1">Target Engine:</span>
                       <span className={isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'}>
-                        {activeProject.id === 'transformer-translation' ? 'PyTorch Custom NN' : 'Unsupervised ML Cluster'}
+                        {activeProject.id === 'transformer-translation' 
+                          ? 'PyTorch Custom NN' 
+                          : activeProject.id === 'campus-compass' 
+                          ? '7-Agent LLM Orchestrator' 
+                          : 'ResNet18 + YOLO + XGBoost'}
                       </span>
                     </div>
                     <div>
                       <span className="font-semibold block mb-1">API Backend:</span>
                       <span className={isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'}>
-                        {activeProject.id === 'transformer-translation' ? 'FastAPI' : activeProject.id === 'weather-forecasting' ? 'Flask' : 'None'}
+                        {activeProject.id === 'transformer-translation' 
+                          ? 'FastAPI' 
+                          : activeProject.id === 'campus-compass' 
+                          ? 'FastAPI + SQLAlchemy' 
+                          : 'FastAPI + JWT'}
                       </span>
                     </div>
                     <div>
                       <span className="font-semibold block mb-1">Deployment Target:</span>
                       <span className={isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'}>
-                        {activeProject.id === 'customer-segmentation' ? 'Dockerized Streamlit' : activeProject.id === 'weather-forecasting' ? 'Streamlit Cloud' : 'FastAPI Server'}
+                        {activeProject.id === 'campus-compass' 
+                          ? 'Render & Vercel' 
+                          : activeProject.id === 'cv-illumination' 
+                          ? 'Vercel & Render' 
+                          : 'FastAPI Server'}
                       </span>
                     </div>
                     <div>
@@ -372,9 +405,33 @@ const Projects = ({ projects, isDark }) => {
               </div>
 
               {/* Footer */}
-              <div className={`p-4 border-t flex justify-end ${
+              <div className={`p-4 border-t flex flex-wrap items-center justify-between gap-4 ${
                 isDark ? 'border-white/5 bg-black/20' : 'border-black/5 bg-black/5'
               }`}>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href={activeProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded-full text-xs font-semibold bg-apple-blue hover:bg-blue-600 text-white shadow transition-all duration-300"
+                  >
+                    GitHub Repo
+                  </a>
+                  {activeProject.live && (
+                    <a
+                      href={activeProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-300 ${
+                        isDark 
+                          ? 'border-white/10 hover:border-white/20 bg-white/5 text-apple-text-darkPrimary' 
+                          : 'border-black/10 hover:border-black/20 bg-black/5 text-apple-text-lightPrimary'
+                      }`}
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                </div>
                 <button
                   onClick={() => setActiveProject(null)}
                   className="px-5 py-2.5 rounded-full text-xs font-semibold bg-apple-blue hover:bg-blue-600 text-white"

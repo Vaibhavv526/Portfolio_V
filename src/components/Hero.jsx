@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 
@@ -87,7 +87,7 @@ const Hero = ({ personal, isDark }) => {
             Explore Systems
           </a>
           <a
-            href="https://drive.google.com/file/d/1QNkHok0qQc7S6ywITMhJOE42AkpIr1Cn/view?usp=sharing"
+            href="https://drive.google.com/file/d/1KRlNbxIY2LS97iBuny6Nipo_EZ_H53fB/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className={`px-6 py-3 rounded-full text-sm font-medium border flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 ${
@@ -97,7 +97,7 @@ const Hero = ({ personal, isDark }) => {
             }`}
           >
             <FileText className="w-4 h-4 text-apple-blue" />
-            Curriculum Vitae
+            Resume
           </a>
           <a
             href="#metrics"

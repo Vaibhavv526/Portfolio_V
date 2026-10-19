@@ -1,12 +1,14 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Award, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 const Milestones = ({ milestones, isDark }) => {
 
   const getCategory = (role) => {
     if (role.toLowerCase().includes('runner up')) {
       return 'Award Recognition';
+    }
+    if (role.toLowerCase().includes('finalist') || role.toLowerCase().includes('contest') || role.toLowerCase().includes('hackathon')) {
+      return 'Hackathon Finalist';
     }
     return 'National Finalist';
   };
@@ -95,11 +97,19 @@ const Milestones = ({ milestones, isDark }) => {
               </h3>
               
               {/* Event Name */}
-              <p className={`text-base font-semibold mb-6 ${
+              <p className={`text-base font-semibold ${milestone.description ? 'mb-3' : 'mb-6'} ${
                 isDark ? 'text-apple-text-darkPrimary' : 'text-apple-text-lightPrimary'
               }`}>
                 {milestone.event}
               </p>
+
+              {milestone.description && (
+                <p className={`text-xs leading-relaxed mb-6 ${
+                  isDark ? 'text-apple-text-darkSecondary' : 'text-apple-text-lightSecondary'
+                }`}>
+                  {milestone.description}
+                </p>
+              )}
             </div>
 
             {/* Footer with locations/milestone info */}
@@ -117,7 +127,7 @@ const Milestones = ({ milestones, isDark }) => {
                 rel="noopener noreferrer"
                 className="text-apple-blue font-semibold flex items-center gap-1 group/link hover:underline"
               >
-                Read Post
+                {milestone.linkLabel || (milestone.link?.includes('drive.google.com') ? 'View Certificate' : 'Read Post')}
                 <ExternalLink className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
               </a>
             </div>

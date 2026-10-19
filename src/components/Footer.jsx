@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Github, Linkedin, Code } from 'lucide-react';
 
 const Footer = ({ socials, isDark }) => {
@@ -35,8 +35,10 @@ const Footer = ({ socials, isDark }) => {
               Sections
             </span>
             <a href="#hero" onClick={(e) => handleLinkClick(e, '#hero')} className="hover:underline transition-all">Start Experience</a>
+            <a href="#experience" onClick={(e) => handleLinkClick(e, '#experience')} className="hover:underline transition-all">Experience</a>
             <a href="#metrics" onClick={(e) => handleLinkClick(e, '#metrics')} className="hover:underline transition-all">Metrics Dashboard</a>
             <a href="#projects" onClick={(e) => handleLinkClick(e, '#projects')} className="hover:underline transition-all">Core Systems</a>
+            <a href="#education" onClick={(e) => handleLinkClick(e, '#education')} className="hover:underline transition-all">Education</a>
             <a href="#milestones" onClick={(e) => handleLinkClick(e, '#milestones')} className="hover:underline transition-all">Recognition</a>
           </div>
 
@@ -48,8 +50,8 @@ const Footer = ({ socials, isDark }) => {
               Core Architecture
             </span>
             <span>PyTorch Transformers</span>
-            <span>Unsupervised Clustering</span>
-            <span>Time-Series Pipelines</span>
+            <span>Multi-Agent AI Systems</span>
+            <span>Computer Vision Pipelines</span>
             <span>Containerized Microservices</span>
           </div>
 

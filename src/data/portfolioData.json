@@ -3,15 +3,30 @@
     "name": "K Vaibhav",
     "role": "Software Engineering Student & Aspiring ML Engineer",
     "headline": "It’s not about if I can. I’m doing it because I want to.",
-    "subHeadline": "Software Engineering Student & Aspiring Machine Learning Engineer crafting scalable applications and data-driven systems."
+    "subHeadline": "Software Engineering Student & Aspiring Machine Learning Engineer crafting scalable applications and data-driven systems.",
+    "resumeUrl": "https://drive.google.com/file/d/1KRlNbxIY2LS97iBuny6Nipo_EZ_H53fB/view?usp=sharing"
   },
+  "experience": [
+    {
+      "company": "PM Accelerator",
+      "role": "Software Engineer Intern – AI/ML",
+      "type": "Remote",
+      "duration": "August 2026 – October 2026",
+      "responsibilities": [
+        "Contributed to AI-driven and Generative AI product development, exploring LLMs, machine-learning frameworks, prompt engineering, and API integrations.",
+        "Supported AI application workflows and data-pipeline development.",
+        "Documented technical research and recommendations for product development."
+      ]
+    }
+  ],
   "metrics": {
     "leetcode": {
-      "totalSolved": 155,
-      "medium": 65,
-      "hard": 8,
-      "easy": 82,
-      "targetSolved": 200,
+      "totalSolved": 300,
+      "displaySolved": "300+",
+      "medium": 140,
+      "hard": 15,
+      "easy": 145,
+      "targetSolved": 400,
       "ranking": 450329
     },
     "consistency": {
@@ -21,87 +36,143 @@
     }
   },
   "toolkit": [
-    { "name": "Python", "category": "Languages / ML" },
-    { "name": "Java", "category": "Languages / ML" },
-    { "name": "PyTorch", "category": "Frameworks / Libs" },
-    { "name": "Scikit-learn", "category": "Frameworks / Libs" },
-    { "name": "Docker", "category": "DevOps / Infrastructure" },
-    { "name": "Streamlit", "category": "Frontend / Deploy" },
-    { "name": "FastAPI", "category": "Backend / Systems" },
-    { "name": "Flask", "category": "Backend / Systems" }
+    { "name": "Python", "category": "Programming" },
+    { "name": "C", "category": "Programming" },
+    { "name": "Java", "category": "Programming" },
+    { "name": "SQL", "category": "Programming" },
+    { "name": "HTML", "category": "Programming" },
+    { "name": "JavaScript", "category": "Programming" },
+    { "name": "PyTorch", "category": "AI/ML" },
+    { "name": "TensorFlow", "category": "AI/ML" },
+    { "name": "Scikit-learn", "category": "AI/ML" },
+    { "name": "Hugging Face", "category": "AI/ML" },
+    { "name": "Transformers", "category": "AI/ML" },
+    { "name": "OpenCV", "category": "AI/ML" },
+    { "name": "YOLO", "category": "AI/ML" },
+    { "name": "XGBoost", "category": "AI/ML" },
+    { "name": "Computer Vision", "category": "AI/ML" },
+    { "name": "LLMs", "category": "AI/ML" },
+    { "name": "Generative AI", "category": "AI/ML" },
+    { "name": "LangChain", "category": "AI/ML" },
+    { "name": "LangGraph", "category": "AI/ML" },
+    { "name": "CrewAI", "category": "AI/ML" },
+    { "name": "FastAPI", "category": "Backend & Data" },
+    { "name": "PostgreSQL", "category": "Backend & Data" },
+    { "name": "REST APIs", "category": "Backend & Data" },
+    { "name": "JWT Authentication", "category": "Backend & Data" },
+    { "name": "Git", "category": "Cloud & Developer Tools" },
+    { "name": "Jupyter Notebook", "category": "Cloud & Developer Tools" },
+    { "name": "Streamlit", "category": "Cloud & Developer Tools" },
+    { "name": "AWS", "category": "Cloud & Developer Tools" },
+    { "name": "Docker", "category": "Cloud & Developer Tools" },
+    { "name": "WSL", "category": "Cloud & Developer Tools" }
   ],
   "projects": [
     {
       "id": "transformer-translation",
       "title": "Transformer Translation Model",
       "subtitle": "English-to-Hindi Neural Translator",
-      "description": "Sequence-to-sequence encoder-decoder architecture built entirely from scratch in PyTorch.",
-      "tech": ["PyTorch", "Python", "FastAPI", "Docker"],
+      "description": "Engineered an encoder-decoder Transformer from scratch in PyTorch with custom multi-head attention, causal masking, beam search, and a FastAPI inference backend.",
+      "tech": ["PyTorch", "Python", "FastAPI", "React"],
       "github": "https://github.com/Vaibhavv526/Transformer-Translation-Model",
       "highlights": [
-        "Custom multi-head self-attention mechanisms and positional encoding layers",
-        "Masked causal attention layers ensuring correct autoregressive decoding alignment",
-        "Efficient beam search and autoregressive decoding strategies for high translation accuracy",
-        "Production inference pipeline deployed via a FastAPI backend with rapid response latencies"
+        "Engineered an encoder-decoder Transformer from scratch in PyTorch.",
+        "Implemented custom multi-head attention, sinusoidal positional encoding, causal masking, and BPE-based subword tokenization.",
+        "Trained on 197K+ cleaned English-Hindi sentence pairs using CUDA and cross-entropy optimization.",
+        "Implemented autoregressive decoding and beam search for sequence generation.",
+        "Built a FastAPI inference backend and React frontend, integrating model checkpoint loading and GPU-accelerated translation."
       ]
     },
     {
-      "id": "customer-segmentation",
-      "title": "Customer Segmentation Pipeline",
-      "subtitle": "Unsupervised Machine Learning Architecture",
-      "description": "Unsupervised ML pipeline designed for robust user profile clustering and marketing insights.",
-      "tech": ["Python", "Scikit-learn", "Docker", "Streamlit"],
-      "github": "https://github.com/Vaibhavv526/Customer_Segmentation",
+      "id": "campus-compass",
+      "title": "CampusCompass",
+      "subtitle": "AI-Powered Student Mentoring Platform",
+      "description": "Built a production-deployed multi-agent AI platform for personalized student mentoring, skill-gap analysis, learning roadmaps, AI tutoring, and career recommendations.",
+      "tech": ["Python", "FastAPI", "React", "PostgreSQL", "Groq LLM", "Docker"],
+      "github": "https://github.com/Vaibhavv526/CampusCompass",
+      "live": "https://campus-compass-wheat-five.vercel.app/register",
       "highlights": [
-        "Implemented K-Means clustering algorithm paired with silhouette score optimization",
-        "Integrated Principal Component Analysis (PCA) for multi-dimensional data dimensionality reduction",
-        "Globally deployed as a containerized dashboard using Docker and Streamlit",
-        "Generated automated customer insights and interactive vector scatter plots"
+        "Built a production-deployed multi-agent AI platform for personalized student mentoring, skill-gap analysis, learning roadmaps, AI tutoring, and career recommendations.",
+        "Engineered a seven-agent architecture for student assessment, roadmap generation, tutoring, quiz generation, evaluation, and recommendations.",
+        "Developed a React + Vite frontend and PostgreSQL backend with REST APIs, JWT authentication, bcrypt password hashing, SQLAlchemy, and Pydantic validation.",
+        "Containerized the backend with Docker and deployed using Render and Vercel."
       ]
     },
     {
-      "id": "weather-forecasting",
-      "title": "Weather Trend Forecasting System",
-      "subtitle": "Multi-city Production-grade Time-series Engine",
-      "description": "End-to-end historical data retrieval and predictive modeling pipeline.",
-      "tech": ["Python", "Flask", "Scikit-learn", "Streamlit"],
-      "github": "https://github.com/Vaibhavv526/Weather-Trend-Forecasting",
+      "id": "cv-illumination",
+      "title": "Computer Vision Illumination Platform",
+      "subtitle": "Night-Vision Illumination Classification",
+      "description": "Built a night-vision illumination classification pipeline combining ResNet18, YOLO, and XGBoost with custom preprocessing for improved accuracy.",
+      "tech": ["FastAPI", "React", "ResNet18", "YOLO", "XGBoost", "PostgreSQL"],
+      "github": "https://github.com/Vaibhavv526/Predicting-Illumination-from-Camera-Images",
+      "live": "https://predicting-illumination-from-camera.vercel.app/register",
       "highlights": [
-        "End-to-end data pipelines streaming historical data directly into optimized predictive modeling frameworks",
-        "Advanced time-series forecasting algorithms modeling seasonal variations and temperature trends",
-        "Cloud-deployed UI visualizations displaying cross-city analytics and error metrics",
-        "Self-healing ETL jobs designed to retrieve updated meteorological reports"
+        "Built a night-vision illumination classification pipeline combining ResNet18, YOLO, and XGBoost.",
+        "Achieved 92% accuracy and under 200 ms inference latency, as reported in my resume.",
+        "Developed FastAPI services with JWT authentication, PostgreSQL history, image-upload APIs, and a React interface.",
+        "Improved accuracy by 8% through custom preprocessing."
       ]
     }
   ],
+  "education": [
+    {
+      "institution": "Government Engineering College, Bilaspur",
+      "degree": "B.Tech in Information Technology",
+      "duration": "2024–2028",
+      "spi": "8.00 (through the fourth semester)",
+      "location": "Bilaspur, Chhattisgarh"
+    }
+  ],
   "milestones": [
+    {
+      "role": "Adobe University Hackathon 2026",
+      "event": "Round 4 — Top 150 Finalist",
+      "description": "Among approximately 300,000 participants, reaching Round 4 with only 150 participants remaining.",
+      "location": "Top 150 / ~300K Participants",
+      "year": "2026",
+      "link": "https://drive.google.com/drive/folders/1r7-C3RlmelNCXCu3ixp28qW3nniuKKEj",
+      "linkLabel": "View Certificate"
+    },
+    {
+      "role": "International AI Contest 2026 — Finalist",
+      "event": "3D Mesh Quality Control Challenge",
+      "description": "Selected as a finalist in the 2026 International AI Contest, competing in the 3D Mesh Quality Control challenge by Sber AI RnD XR.",
+      "location": "Sber AI RnD XR",
+      "year": "2026",
+      "link": "https://drive.google.com/file/d/1EsU-1lazj9cs4fLJz6wouTBG1Eic0-IR/view",
+      "linkLabel": "View Certificate"
+    },
     {
       "role": "National Runner Up",
       "event": "Symbiosis Skill Hackathon (SSH '26)",
       "location": "Indore",
       "year": "2026",
-      "link": "https://www.linkedin.com/posts/k-vaibhav-7328b1329_radhe-radhe-i-recently-participated-in-activity-7433793523365191680-ypZb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
+      "link": "https://www.linkedin.com/posts/k-vaibhav-7328b1329_radhe-radhe-i-recently-participated-in-activity-7433793523365191680-ypZb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA",
+      "linkLabel": "Read Post"
     },
     {
       "role": "Runner Up",
       "event": "Business Ghar Ideathon 2026",
       "location": "Raipur",
       "year": "2026",
-      "link": "https://www.linkedin.com/posts/k-vaibhav-7328b1329_radhe-radhe-everyone-grateful-for-an-amazing-activity-7418728968067018753-ZW3F?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
+      "link": "https://www.linkedin.com/posts/k-vaibhav-7328b1329_radhe-radhe-everyone-grateful-for-an-amazing-activity-7418728968067018753-ZW3F?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA",
+      "linkLabel": "Read Post"
     },
     {
       "role": "National Finalist",
       "event": "IIIT Naya Raipur E-Summit Hackathon 2026",
       "location": "Top 120 Teams",
       "year": "2026",
-      "link": "https://www.linkedin.com/posts/vinay-dewangan-02893821b_hackathon-esummit-iitnayaraipur-ugcPost-7442947404380815360-afOI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
+      "link": "https://www.linkedin.com/posts/vinay-dewangan-02893821b_hackathon-esummit-iitnayaraipur-ugcPost-7442947404380815360-afOI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA",
+      "linkLabel": "Read Post"
     },
     {
       "role": "National Finalist",
       "event": "NHIDE National Hackathon 2026",
       "location": "Top 200 Teams",
       "year": "2026",
-      "link": "https://www.linkedin.com/posts/harish-shipra-sharma-177a2032b_ideathon-learningexperience-teamwork-activity-7442978822922178562-D9PS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA"
+      "link": "https://www.linkedin.com/posts/harish-shipra-sharma-177a2032b_ideathon-learningexperience-teamwork-activity-7442978822922178562-D9PS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLkddYB2Xcl_ZRwFyw0xjCbjeMeuurVdwA",
+      "linkLabel": "Read Post"
     }
   ],
   "socials": {

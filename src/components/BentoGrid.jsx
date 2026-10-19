@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Terminal, ChevronRight, Sparkles } from 'lucide-react';
+import { Code2, Terminal, ChevronRight } from 'lucide-react';
 
 const BentoGrid = ({ metrics, toolkit, isDark }) => {
   const leetcode = metrics.leetcode;
@@ -61,19 +61,19 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
             const medStat = list.find(s => s.difficulty === 'Medium');
             const hardStat = list.find(s => s.difficulty === 'Hard');
             
-            if (allStat) total = allStat.count;
-            if (easyStat) easy = easyStat.count;
-            if (medStat) medium = medStat.count;
-            if (hardStat) hard = hardStat.count;
+            if (allStat) total = Math.max(allStat.count, leetcode.totalSolved);
+            if (easyStat) easy = Math.max(easyStat.count, leetcode.easy);
+            if (medStat) medium = Math.max(medStat.count, leetcode.medium);
+            if (hardStat) hard = Math.max(hardStat.count, leetcode.hard);
           }
         } else if (typeof data.totalSolved === 'number') {
-          total = data.totalSolved;
+          total = Math.max(data.totalSolved, leetcode.totalSolved);
           medium = data.mediumSolved || data.medium || leetcode.medium;
           hard = data.hardSolved || data.hard || leetcode.hard;
           easy = data.easySolved || data.easy || leetcode.easy;
           ranking = data.ranking || ranking;
         } else if (typeof data.solvedQuestions === 'number') {
-          total = data.solvedQuestions;
+          total = Math.max(data.solvedQuestions, leetcode.totalSolved);
           medium = data.mediumQuestions || leetcode.medium;
           hard = data.hardQuestions || leetcode.hard;
           easy = data.easyQuestions || leetcode.easy;
@@ -109,16 +109,16 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
     { 
       name: 'Total Solved', 
       val: stats.totalSolved, 
-      max: leetcode.targetSolved, 
+      max: leetcode.targetSolved || 400, 
       color: '#0071e3', // Apple Blue
       radius: 65,
       stroke: 8,
-      label: `${stats.totalSolved} / ${leetcode.targetSolved}`
+      label: `${stats.totalSolved}+ / ${leetcode.targetSolved || 400}`
     },
     { 
       name: 'Easy Problems', 
       val: stats.easy, 
-      max: 100, 
+      max: 200, 
       color: '#10b981', // Apple Green / Emerald
       radius: 52,
       stroke: 8,
@@ -127,7 +127,7 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
     { 
       name: 'Medium Problems', 
       val: stats.medium, 
-      max: 100, 
+      max: 200, 
       color: '#f59e0b', // Amber/Yellow
       radius: 39,
       stroke: 8,
@@ -144,13 +144,12 @@ const BentoGrid = ({ metrics, toolkit, isDark }) => {
     }
   ];
 
-  // Group toolkit items by category
-  const categories = {
-    'Languages & Core': toolkit.filter(t => t.name === 'Python' || t.name === 'Java'),
-    'Machine Learning': toolkit.filter(t => t.name === 'PyTorch' || t.name === 'Scikit-learn'),
-    'Backend & APIs': toolkit.filter(t => t.name === 'FastAPI' || t.name === 'Flask'),
-    'DevOps & Deployment': toolkit.filter(t => t.name === 'Docker' || t.name === 'Streamlit')
-  };
+  // Group toolkit items by category dynamically
+  const categories = toolkit.reduce((acc, item) => {
+    if (!acc[item.category]) acc[item.category] = [];
+    acc[item.category].push(item);
+    return acc;
+  }, {});
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, Terminal } from 'lucide-react';
 
 const Navbar = ({ isDark, setIsDark }) => {
@@ -19,8 +19,10 @@ const Navbar = ({ isDark, setIsDark }) => {
 
   const navLinks = [
     { name: 'Start', href: '#hero' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Metrics', href: '#metrics' },
     { name: 'Systems', href: '#projects' },
+    { name: 'Education', href: '#education' },
     { name: 'Milestones', href: '#milestones' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -60,7 +62,7 @@ const Navbar = ({ isDark, setIsDark }) => {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-5 lg:space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Experience from './components/Experience';
 import BentoGrid from './components/BentoGrid';
 import Projects from './components/Projects';
+import Education from './components/Education';
 import Milestones from './components/Milestones';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -52,6 +54,16 @@ function App() {
           }`} />
         </div>
 
+        {/* Section: Experience */}
+        <Experience experience={portfolioData.experience} isDark={isDark} />
+
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Subtle separator */}
+          <hr className={`border-t transition-colors duration-500 ${
+            isDark ? 'border-white/5' : 'border-black/5'
+          }`} />
+        </div>
+
         {/* Section 2: Core Metrics & Bento Grid */}
         <BentoGrid metrics={portfolioData.metrics} toolkit={portfolioData.toolkit} isDark={isDark} />
 
@@ -64,6 +76,16 @@ function App() {
 
         {/* Section 3: Featured Systems (Product Cards) */}
         <Projects projects={portfolioData.projects} isDark={isDark} />
+
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Subtle separator */}
+          <hr className={`border-t transition-colors duration-500 ${
+            isDark ? 'border-white/5' : 'border-black/5'
+          }`} />
+        </div>
+
+        {/* Section: Education */}
+        <Education education={portfolioData.education} isDark={isDark} />
 
         <div className="max-w-6xl mx-auto px-6">
           {/* Subtle separator */}
